@@ -8,9 +8,26 @@ export default class FriendList extends Component {
 
  render(){
   return(
-   <div>
-   
-   </div>
+  <Form onSubmit={props.saveFriend}>
+   <input
+     type="text"
+     value=''
+     onChange={props.changeHandler}
+     placeholder="name"
+   />
+    <input
+     type="text"
+     value=''
+     onChange={props.changeHandler}
+     placeholder="age"
+   />
+    <input
+     type="text"
+     value=''
+     onChange={props.changeHandler}
+     placeholder="email"
+   />
+  </Form>
   )
  }
 
