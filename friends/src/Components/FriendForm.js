@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class FriendList extends Component {
+export default class FriendForm extends Component {
  constructor(props) {
   super(props);
  }

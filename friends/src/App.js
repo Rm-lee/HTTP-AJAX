@@ -25,7 +25,7 @@ export default class App extends React.Component{
    })
 }
  changeHandler = e =>{
-  this.setState({ newFriend: event.target.value})
+  this.setState({ [e.target.name]: event.target.value})
  }
 
 render(){
