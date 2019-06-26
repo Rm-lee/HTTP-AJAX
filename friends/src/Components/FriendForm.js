@@ -10,21 +10,24 @@ export default class FriendList extends Component {
   return(
   <Form onSubmit={props.saveFriend}>
    <input
+     name='name'
      type="text"
-     value=''
-     onChange={props.changeHandler}
+     value={this.props.name}
+     onChange={props.changeH}
      placeholder="name"
    />
     <input
+     name='age'
      type="text"
-     value=''
-     onChange={props.changeHandler}
+     value={this.props.age}
+     onChange={props.changeH}
      placeholder="age"
    />
     <input
+     name='email'
      type="text"
-     value=''
-     onChange={props.changeHandler}
+     value={this.props.email}
+     onChange={props.changeH}
      placeholder="email"
    />
   </Form>

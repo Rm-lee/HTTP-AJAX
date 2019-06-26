@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios'
 import FriendList from './Components/FriendList'
+import FriendForm from './Components/FriendForm'
 import logo from './logo.svg';
 import './App.css';
 
 export default class App extends React.Component{
 	state = {
-		friends: []
+    friends: [],
+    newFriend: ''
  }
  
  componentDidMount(){
@@ -22,14 +24,17 @@ export default class App extends React.Component{
     console.log('error:', err)
    })
 }
+ changeHandler = e =>{
+  this.setState({ newFriend: event.target.value})
+ }
 
 render(){
  return(
    <div>
    {this.state.friends.map( friend => (
-     <FriendList key={friend.id} friends={friend} />
-     
+     <FriendList key={friend.id} changeH={changeHandler}friends={friend} />
    ))}
+   <FriendForm />
   </div>
  )
 }
