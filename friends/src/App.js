@@ -14,7 +14,7 @@ export default class App extends React.Component{
  }
  
  componentDidMount(){
-
+  //server get request to load friend data to state
   axios.get('http://localhost:5000/friends')
    .then(response => {
     this.setState({
@@ -26,10 +26,11 @@ export default class App extends React.Component{
     console.log('error:', err)
    })
 }
+//form changehandler
  changeHandler = e =>{
   this.setState({ [e.target.name]: e.target.value})
  }
-
+//form submit handler- adds friend info from state to new obj and sends post request to server
  addFriend = e =>{
    e.preventDefault();
    const newFriend = {
@@ -49,7 +50,7 @@ export default class App extends React.Component{
 
 render(){
  return(
-   <div>
+   <div className="app">
    {this.state.friends.map( friend => (
      <FriendList key={friend.id} friends={friend} />
    ))}

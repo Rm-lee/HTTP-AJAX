@@ -8,7 +8,7 @@ export default class FriendForm extends Component {
 
  render(){
   return(
-  <form onSubmit={this.props.saveFriend}>
+  <form className="friend-form" onSubmit={this.props.saveFriend}>
    <input
      name='name'
      type="text"
