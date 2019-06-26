@@ -8,29 +8,30 @@ export default class FriendForm extends Component {
 
  render(){
   return(
-  <Form onSubmit={props.saveFriend}>
+  <form onSubmit={this.props.saveFriend}>
    <input
      name='name'
      type="text"
      value={this.props.name}
-     onChange={props.changeH}
+     onChange={this.props.changeH}
      placeholder="name"
    />
     <input
      name='age'
      type="text"
      value={this.props.age}
-     onChange={props.changeH}
+     onChange={this.props.changeH}
      placeholder="age"
    />
     <input
      name='email'
      type="text"
      value={this.props.email}
-     onChange={props.changeH}
+     onChange={this.props.changeH}
      placeholder="email"
    />
-  </Form>
+   <button type="submit">Add</button>
+  </form>
   )
  }
 
