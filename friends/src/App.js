@@ -8,7 +8,9 @@ import './App.css';
 export default class App extends React.Component{
 	state = {
     friends: [],
-    newFriend: ''
+    name: '',
+    age: '',
+    email: ''
  }
  
  componentDidMount(){
