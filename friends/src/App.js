@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios'
 import FriendList from './Components/FriendList'
 import FriendForm from './Components/FriendForm'
-import logo from './logo.svg';
 import './App.css';
 
 export default class App extends React.Component {

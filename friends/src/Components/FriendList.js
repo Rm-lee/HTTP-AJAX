@@ -9,7 +9,9 @@ export default class FriendList extends Component {
  render() {
   return (
    <div className="friend-list">
-    {this.props.friends.name}
+    <p>{this.props.friends.name} </p>
+    <p>{this.props.friends.age}</p>
+    <p>{this.props.friends.email} </p>
    </div>
   )
  }

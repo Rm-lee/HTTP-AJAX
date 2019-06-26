@@ -32,3 +32,24 @@
   }
 }
 
+.friend-list{
+  display:flex;
+  margin:10px 20px;
+  background:#cdcdcd;
+ 
+}
+.friend-list p{
+  padding:20px;
+  font-size:1.2rem;
+}
+.friend-form{
+  
+  margin:10px auto;
+  display:flex;
+  flex-direction:column;
+  width:30%;
+}
+.friend-form input{
+  font-size:1.5rem;
+}
+.btn{}
