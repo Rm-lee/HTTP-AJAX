@@ -1,19 +1,65 @@
-import React, { Component } from 'react';
+import React from 'react'
+import Friend from './Friend'
+import FriendForm from './FriendForm'
+import axios from 'axios'
+import { Link } from "react-router-dom"
+export default class FriendList extends React.Component {
+ state = {
+  friends: [],
+  name: '',
+  age: '',
+  email: ''
+}
 
+componentDidMount() {
+  //server get request to load friend data to state
+  axios.get('http://localhost:5000/friends')
+    .then(response => {
+      this.setState({
+        friends: response.data
+      })
 
-export default class FriendList extends Component {
- constructor(props) {
-  super(props);
- }
- //display friend names from props passed down
- render() {
-  return (
-   <div className="friend-list">
-    <p>{this.props.friends.name} </p>
-    <p>{this.props.friends.age}</p>
-    <p>{this.props.friends.email} </p>
-   </div>
-  )
- }
+    })
+    .catch(err => {
+      console.log('error:', err)
+    })
+}
+//form changehandler
+changeHandler = e => {
+  this.setState({ [e.target.name]: e.target.value })
+}
+//form submit handler- adds friend info from state to new obj and sends post request to server
+addFriend = e => {
+  e.preventDefault();
+  const newFriend = {
+    name: this.state.name,
+    age: this.state.age,
+    email: this.state.email
+  }
+  this.setState({
+    friends: [...this.state.friends, newFriend]
+    
+  })
+  axios.post('http://localhost:5000/friends', newFriend)
+    .catch(err => {
+      console.log('error:', err)
+    })
+   }
+update(){
 
 }
+ 
+ render() {
+
+
+  return (
+   <div>
+    {this.state.friends.map(friend => (
+     <Link to={`/friend/${friend.id}`}> <Friend key={friend.id} friend={friend} /> </Link>
+    ))}
+     <FriendForm saveFriend={this.addFriend} changeH={this.changeHandler} updateFriend={this.update}/>
+  </div>
+    
+   ) 
+  }
+ }

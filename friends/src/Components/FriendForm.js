@@ -30,7 +30,9 @@ export default class FriendForm extends Component {
      onChange={this.props.changeH}
      placeholder="email"
     />
+    
     <button type="submit">Add</button>
+    
    </form>
   )
  }
