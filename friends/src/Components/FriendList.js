@@ -2,6 +2,7 @@ import React from 'react'
 import Friend from './Friend'
 import FriendForm from './FriendForm'
 import axios from 'axios'
+import { Link } from "react-router-dom"
 export default class FriendList extends React.Component {
  state = {
   friends: [],
@@ -44,7 +45,9 @@ addFriend = e => {
       console.log('error:', err)
     })
    }
+update(){
 
+}
  
  render() {
 
@@ -52,9 +55,9 @@ addFriend = e => {
   return (
    <div>
     {this.state.friends.map(friend => (
-     <Friend key={friend.id} friend={friend} />
+     <Link to={`/friend/${friend.id}`}> <Friend key={friend.id} friend={friend} /> </Link>
     ))}
-     <FriendForm saveFriend={this.addFriend} changeH={this.changeHandler} />
+     <FriendForm saveFriend={this.addFriend} changeH={this.changeHandler} updateFriend={this.update}/>
   </div>
     
    ) 
